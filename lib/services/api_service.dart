@@ -105,23 +105,23 @@ Do not include any other text, markdown, or explanation.
   AgentResponse _getMockResponse(String userMessage) {
     final msg = userMessage.toLowerCase();
 
-    if (msg.contains('flight') || msg.contains('book') || msg.contains('travel')) {
+    if (msg.contains('subscription')) {
       return AgentResponse(
-        thought: 'User wants to book or search for flights.',
-        tool: 'FlightSearch',
-        params: {'destination': 'Extracted from message', 'max_price': 500},
+        thought: 'User wants to cancel a subscription.',
+        tool: 'SubscriptionKiller',
+        params: {'app_name': 'Extracted from message', 'billing_cycle': 'monthly'},
       );
-    } else if (msg.contains('refund') || msg.contains('cancel') || msg.contains('money back')) {
+    } else if (msg.contains('refund') || msg.contains('money back')) {
       return AgentResponse(
         thought: 'User wants to find or process a refund.',
         tool: 'RefundHunter',
         params: {'reason': 'User requested', 'priority': 'high'},
       );
-    } else if (msg.contains('subscription') || msg.contains('cancel') || msg.contains('stop')) {
+    } else if (msg.contains('flight') || msg.contains('book') || msg.contains('travel')) {
       return AgentResponse(
-        thought: 'User wants to cancel a subscription.',
-        tool: 'SubscriptionKiller',
-        params: {'app_name': 'Extracted from message', 'billing_cycle': 'monthly'},
+        thought: 'User wants to book or search for flights.',
+        tool: 'FlightSearch',
+        params: {'destination': 'Extracted from message', 'max_price': 500},
       );
     } else if (msg.contains('calendar') || msg.contains('schedule') || msg.contains('meeting')) {
       return AgentResponse(
@@ -140,6 +140,12 @@ Do not include any other text, markdown, or explanation.
         thought: 'User wants to control smart home devices.',
         tool: 'SmartHomeController',
         params: {'device': 'Auto-detected', 'action': 'toggle'},
+      );
+    } else if (msg.contains('cancel') || msg.contains('stop')) {
+      return AgentResponse(
+        thought: 'User wants to cancel something.',
+        tool: 'SubscriptionKiller',
+        params: {'app_name': 'Extracted from message', 'billing_cycle': 'monthly'},
       );
     }
 
