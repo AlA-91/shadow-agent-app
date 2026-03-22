@@ -1,16 +1,65 @@
-# shadow_agent
+# SHADOW Agent
 
-A new Flutter project.
+**AI Agent Orchestrator with Premium Android 16 UI**
 
-## Getting Started
+A conversational AI agent that interprets natural language requests and triggers appropriate tools for task automation.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- **Premium UI** - Android 16 style with gradients, animations, and glassmorphism
+- **Gemini AI** - Real API integration with intelligent tool selection
+- **Quick Actions** - Tap to send common commands
+- **Tool Chips** - Visual feedback for triggered tools
+- **Chat History** - Persistent conversation storage
+- **State Management** - Riverpod for reactive updates
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Available Tools
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Tool | Description |
+|------|-------------|
+| FlightSearch | Search and book flights |
+| RefundHunter | Process refunds |
+| SubscriptionKiller | Cancel subscriptions |
+| CalendarAssistant | Manage calendar events |
+| ExpenseTracker | Track expenses |
+| SmartHomeController | Control smart home |
+
+## Setup
+
+1. Get a Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey)
+2. Create `.env` file:
+   ```
+   GEMINI_API_KEY=your_api_key_here
+   ```
+3. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
+4. Run the app:
+   ```bash
+   flutter run
+   ```
+
+## Tech Stack
+
+- Flutter 3.7+
+- Riverpod (state management)
+- Google Generative AI
+- Material Design 3
+
+## Project Structure
+
+```
+lib/
+├── main.dart              # App entry & UI
+├── models/
+│   └── chat_message.dart  # Message model
+├── providers/
+│   └── agent_provider.dart # State management
+└── services/
+    └── api_service.dart   # Gemini API
+```
+
+## License
+
+MIT
