@@ -88,7 +88,7 @@ class _ShadowAppState extends ConsumerState<ShadowApp>
           letterSpacing: -0.5,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardColor,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -278,7 +278,7 @@ class _ShadowHomePageState extends ConsumerState<ShadowHomePage> {
               shape: BoxShape.circle,
             ),
             child: const Icon(
-              Icons.sparkles,
+              Icons.auto_awesome,
               size: 64,
               color: Color(0xFF6750A4),
             ),
