@@ -114,7 +114,7 @@ class AgentNotifier extends StateNotifier<AgentState> {
 
   Future<void> loadHistory() async {
     final prefs = await SharedPreferences.getInstance();
-    final _historyJson = prefs.getStringList('chat_history') ?? [];
+    await prefs.getStringList('chat_history');
     state = state.copyWith(messages: []);
   }
 
