@@ -1,4 +1,4 @@
-name: Build APK
+name: Build
 
 on:
   push:
@@ -32,14 +32,14 @@ jobs:
       - name: Analyze Code
         run: flutter analyze
 
-      - name: Build Release APK
-        run: flutter build apk --release
+      - name: Build Web
+        run: flutter build web
 
-      - name: Upload APK
+      - name: Upload Web Build
         uses: actions/upload-artifact@v4
         with:
-          name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: web-build
+          path: build/web
 
   build-debug:
     runs-on: ubuntu-latest
@@ -61,11 +61,11 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Build Debug APK
-        run: flutter build apk --debug
+      - name: Build Web (Debug)
+        run: flutter build web --debug
 
-      - name: Upload Debug APK
+      - name: Upload Debug Build
         uses: actions/upload-artifact@v4
         with:
-          name: debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: web-build-debug
+          path: build/web
